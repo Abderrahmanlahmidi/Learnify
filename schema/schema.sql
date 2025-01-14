@@ -1,0 +1,15 @@
+CREATE DATABASE LearnifyDB;
+
+USE LearnifyDB;
+
+CREATE TABLE user(
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(80)
+
+)
+
+
+ALTER TABLE user ADD role varchar(255) NOT NULL;
