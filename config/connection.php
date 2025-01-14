@@ -21,11 +21,11 @@ class Connection{
     public function getConnection(){
 
         if ($this -> connection) {
-           echo "db its connection";
+           return $this->connection;
         }else{
            echo "error db its not connection"; 
         }
-        return $this->connection;
+        
     }
 
 

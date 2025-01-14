@@ -6,9 +6,8 @@ class Role{
     private int $id = 0;
     private string $role = "";
 
-    public function __construct($role)
+    public function __construct()
     {
-        $this->role = $role;
     }
 
 

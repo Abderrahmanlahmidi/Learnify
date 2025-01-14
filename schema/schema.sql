@@ -11,5 +11,13 @@ CREATE TABLE user(
 
 )
 
+INSERT INTO learnifydb.user (nom, age, email, password) 
+VALUES 
+("Jack Richard", 25, "Richard@gmail.com", 234567890),
+("Robin Molly", 26, "Molly@gmail.com", 8768687);
+
+
+
+
 
 ALTER TABLE user ADD role varchar(255) NOT NULL;

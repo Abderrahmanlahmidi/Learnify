@@ -1,8 +1,6 @@
 <?php
 
 
-require_once "../config/connection.php";
-
 class User{
 
     private int $id = 0;
@@ -13,17 +11,21 @@ class User{
     private int $age = 0;
     private Role $role;
 
-    private Connection $connection;
+    private PDO $connection;
 
-    public function __construct(string $nom, string $prenom, string $email, string $password)
+    public function __construct(PDO $connection)
     {
+        $this -> connection = $connection;
+    }
 
-        $this -> nom = $nom;
-        $this -> prenom = $prenom;
-        $this -> email = $email;
-        $this -> password = $password;
-        $this -> role = new Role("admin");
 
+
+    public function setRole(){
+        $this -> role = new Role();
+    }
+
+    public function getRole(){
+        return $this -> role;
     }
 
     public function setId(int $id):void{
@@ -70,21 +72,25 @@ class User{
         return $this -> age;
     }
 
-    public function setConnection(string $connection){
-         $this -> connection = $connection;
-    }
-
     public function getConnection(){
         return $this -> connection;
     }
 
-    public function Register(){
 
+    public function getAllUsers(){
+      
+        $sql = "SELECT * FROM learnifydb.user";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if(!empty($row)){
+            return $row;
+        }
+
+        return [];
     }
 
-    public function Login(){
-        
-    }
 
 
     public function __toString()

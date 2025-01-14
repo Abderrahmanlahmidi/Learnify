@@ -12,16 +12,8 @@ class Cours{
     private User $prof;
     private string $photo = "";
 
-    public function __construct(string $titre, string $description, string $contenu, string $categories, string $photo, array $tags)
+    public function __construct()
     {
-        
-        $this -> titre = $titre;
-        $this -> description = $description;
-        $this -> contenu = $contenu;
-        $this -> $categories = $categories;
-        $this -> photo = $photo;
-        $this -> prof = new User("jahn", "Doe", "jahn@gmail.com", 2134);
-        $this -> tags = $tags;
         
     }
 
@@ -86,9 +78,7 @@ class Cours{
         return $this->photo;
     }
 
-    public function __toString(){
-        return "titre: " . $this -> titre . "description: " . $this -> description . "contenu: " . $this -> contenu . "categories: " . $this -> categories . "prof: " . $this -> prof -> getNom() . $this -> prof -> getPrenom() . $this -> prof ->  getEmail() . $this -> prof ->  getPassword();
-    }
+
 
 
 

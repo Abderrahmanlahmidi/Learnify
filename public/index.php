@@ -1,11 +1,7 @@
 <?php
 
+require "../view/tableUsers.php";
 
-
-// require_once '../helpers.php';
-// require_once '../routes/routes.php';
-
-require "test.php";
 
 
 ?>
