@@ -5,7 +5,6 @@ class User{
 
     private int $id = 0;
     private string $nom = "";
-    private string $prenom = "";
     private string $email = ""; 
     private string $password = "";
     private int $age = 0;
@@ -18,10 +17,8 @@ class User{
         $this -> connection = $connection;
     }
 
-
-
     public function setRole(){
-        $this -> role = new Role();
+        // $this -> role = new Role();
     }
 
     public function getRole(){
@@ -38,14 +35,6 @@ class User{
 
     public function getNom(){
         return $this -> nom;
-    }
-
-    public function setPrenom(string $prenom):void{
-        $this -> prenom = $prenom;
-    }
-
-    public function getPrenom(){
-        return $this -> prenom;
     }
 
     public function setEmail(string $email):void{
@@ -91,15 +80,43 @@ class User{
         return [];
     }
 
-
-
-    public function __toString()
+    public function createUser(string $nom, string $email, string $age, string $password)
     {
-        return "nom: " . $this -> nom . "prenom: " . $this -> prenom . "email: " . $this -> email . "password: " . $this -> password . "role: " . $this -> role;
+        $sql = "INSERT INTO learnifydb.user (nom, email, age, password) VALUES (:nom, :email, :age, :password)";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':password', $password);
+
+        return $stmt->execute();
     }
 
+    public function deleteUser(int $id){
+            $sql = "DELETE FROM learnifydb.user WHERE id = :id";
+            $stmt = $this -> connection -> prepare($sql);
+            $stmt -> bindParam(':id', $id);
+            return $stmt -> execute();
+    }
+
+    public function updateUser(int $id, string $nom, string $email, string $age, string $password){
+        $sql = "UPDATE learnifydb.user SET nom = :nom, email = :email, age = :age, password = :password where id = :id";
+        $stmt = $this -> connection -> prepare($sql);
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':id', $id);
+
+        return $stmt->execute();
+    }
+
+
     
+
     
+
+
 }
 
 

@@ -1,6 +1,14 @@
 <?php
 
-require "../view/tableUsers.php";
+require "../view/tableUsersView.php";
+
+
+
+
+
+
+
+
 
 
 

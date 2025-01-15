@@ -12,9 +12,11 @@ class Cours{
     private User $prof;
     private string $photo = "";
 
-    public function __construct()
+    private PDO $connection;
+
+    public function __construct(PDO $connection)
     {
-        
+        $this -> connection = $connection;
     }
 
 
@@ -78,6 +80,59 @@ class Cours{
         return $this->photo;
     }
 
+
+    public function getAllCours(){
+      
+        $sql = "SELECT * FROM learnifydb.cours";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if(!empty($row)){
+            return $row;
+        }
+
+        return [];
+    }
+
+    public function createCours(string $titre, string $description, string $contenu, string $categories, string $photo)
+    {
+        $sql = "INSERT INTO learnifydb.user (titre ,description ,contenu ,categories ,photo) VALUES (:titre ,:description ,:contenu ,:categories ,:photo)";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':titre', $titre);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':contenu', $contenu);
+        $stmt->bindParam(':categories', $categories);
+        $stmt->bindParam(':photo', $photo);
+
+
+        return $stmt->execute();
+    }
+
+    public function deleteCours(int $id){
+            $sql = "DELETE FROM learnifydb.cours WHERE id = :id";
+            $stmt = $this -> connection -> prepare($sql);
+            $stmt -> bindParam(':id', $id);
+            return $stmt -> execute();
+    }
+
+    public function updateCours(int $id,string $titre, string $description, string $contenu, string $categories, string $photo){
+        $sql = "UPDATE learnifydb.cours SET titre = :titre, description = :description, contenu = :contenu, categories = :categories, photo = :photo where id = :id";
+        $stmt = $this -> connection -> prepare($sql);
+        $stmt->bindParam(':titre', $titre);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':contenu', $contenu);
+        $stmt->bindParam(':categories', $categories);
+        $stmt->bindParam(':photo', $photo);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+
+
+
+
+
+    
 
 
 

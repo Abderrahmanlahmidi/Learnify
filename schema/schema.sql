@@ -17,7 +17,30 @@ VALUES
 ("Robin Molly", 26, "Molly@gmail.com", 8768687);
 
 
-
-
-
 ALTER TABLE user ADD role varchar(255) NOT NULL;
+
+
+CREATE TABLE learnifydb.role(
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    role VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE learnifydb.tags(
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    tag VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE learnifydb.cours(
+
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    titre VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    contenu VARCHAR(255) NOT NULL,
+    categories VARCHAR(255) NOT NULL,
+    photo VARCHAR(255) NOT NULL
+
+)
+
+
+
+
