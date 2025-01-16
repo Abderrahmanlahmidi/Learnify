@@ -8,11 +8,4 @@ $newRole = new RoleController();
 var_dump($newRole -> getAllRoles());
 
 
-
-
-
-
-
-
-
 ?>

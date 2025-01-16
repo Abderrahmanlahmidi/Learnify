@@ -3,6 +3,11 @@
 require "../config/connection.php";
 require "../models/userModel.php";
 
+require "../view/partials/header.php";
+require "../view/dashboard/tableUsersView.php";
+require "../view/partials/footer.php";
+
+
 class userController{
 
     private  $userModel;
@@ -29,8 +34,6 @@ class userController{
     public function updateUserController(int $id, string $nom, string $email, string $age, string $password){
       $this -> userModel -> updateUser($id, $nom, $email, $age, $password);
     }
-
-    
 
 
 }

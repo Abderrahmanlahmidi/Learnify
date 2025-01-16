@@ -1,16 +1,5 @@
 <?php
 
-require "../view/tableUsersView.php";
-
-
-
-
-
-
-
-
-
-
+require "../routes/routes.php";
 
 ?>
-

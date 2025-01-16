@@ -141,7 +141,7 @@ class Cours{
 
 
 
-
+require "../view/coursesView.php";
 
 
 

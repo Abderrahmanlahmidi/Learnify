@@ -67,14 +67,9 @@ class Tags{
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
-
-
+    
     
 }
-
-
-
-
 
 
 ?>
