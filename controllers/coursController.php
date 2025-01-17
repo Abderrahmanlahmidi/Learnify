@@ -3,6 +3,7 @@
 
 require "../config/connection.php";
 require "../models/coursModel.php";
+require "../view/coursesView.php";
 
 
 class coursController{

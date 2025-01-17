@@ -128,22 +128,7 @@ class Cours{
         return $stmt->execute();
     }
 
-
-
-
-
-    
-
-
-
-
 }
-
-
-
-require "../view/coursesView.php";
-
-
 
 
 

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Navbar Container */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1.5rem;
+        }
+
+        /* Logo */
+        .text-2xl {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a202c;
+        }
+
+        /* Navigation Links */
+        nav a {
+            font-size: 1rem;
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #4299e1; /* Hover Color */
+        }
+
+        /* Buttons */
+        .flex a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .flex a:hover {
+            opacity: 0.9;
+        }
+
+        /* Login Button */
+        .login {
+            border: 1px solid #4299e1;
+            color: #4299e1;
+            background-color: transparent;
+        }
+
+        .login:hover {
+            background-color: #4299e1;
+            color: #ffffff;
+        }
+
+        /* Register Button */
+        .register {
+            background-color: #4299e1;
+            color: #ffffff;
+        }
+
+        .register:hover {
+            background-color: #2b6cb0;
+        }
+    </style>
+    <title>Styled Navbar</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <div class="text-2xl">
+                BrandName
+            </div>
+            <!-- Navigation Links -->
+            <nav>
+                <a href="#">Home</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <!-- Buttons -->
+            <div class="flex">
+                <a href="/login" class="login">Login</a>
+                <a href="/register" class="register">Register</a>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

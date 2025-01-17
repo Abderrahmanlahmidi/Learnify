@@ -3,9 +3,16 @@
 require "../config/connection.php";
 require "../models/userModel.php";
 
-require "../view/partials/header.php";
+
+$userAllData = new userController();
+$users = $userAllData -> getAllUsersController();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $userAllData -> deleteUserController($_POST['deleteInfo']);
+    header("Refresh:0");
+}
+
 require "../view/dashboard/tableUsersView.php";
-require "../view/partials/footer.php";
 
 
 class userController{

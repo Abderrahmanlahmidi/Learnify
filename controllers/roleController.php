@@ -2,6 +2,8 @@
 
 require "../config/connection.php";
 require "../models/roleModel.php";
+require "../view/rolesView.php";
+
 
 class RoleController{
 

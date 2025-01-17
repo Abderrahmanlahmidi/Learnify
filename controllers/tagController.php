@@ -33,10 +33,7 @@ class TagController{
         $this -> tagModel -> updateTag($id, $tag);
       }
 
-
 }
-
-
 
 
 
