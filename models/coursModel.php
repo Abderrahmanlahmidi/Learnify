@@ -82,8 +82,26 @@ class Cours{
 
 
     public function getAllCours(){
-      
-        $sql = "SELECT * FROM learnifydb.cours";
+    $sql = "SELECT 
+    courses.id, 
+    courses.titre, 
+    courses.description_course, 
+    courses.contenu, 
+    catygories.catygorie AS categorie,
+    GROUP_CONCAT(tags.tags SEPARATOR ', ') AS tags, 
+    user.nom AS enseignant
+    FROM 
+        courses
+    JOIN 
+        tag_courses ON courses.id = tag_courses.courses_id
+    JOIN 
+        tags ON tag_courses.tag_id = tags.id
+    JOIN 
+        catygories ON courses.catygorie_id = catygories.id
+    JOIN 
+        user ON courses.user_id = user.id
+    GROUP BY 
+    courses.id;";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -1,10 +1,10 @@
 <?php
 
-
 require "../controllers/userController.php";
 
 $userAllData = new userController();
 $users = $userAllData -> getAllUsersController();
+
 
 
 // echo "<pre>";

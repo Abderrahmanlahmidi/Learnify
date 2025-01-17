@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 require "../view/dashboard/tableUsersView.php";
 
 
+
 class userController{
 
     private  $userModel;

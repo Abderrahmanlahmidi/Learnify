@@ -1,5 +1,4 @@
 <?php require "../view/partials/header.php"?>
-<!-- Main Content -->
  <div class="flex-1 bg-gray-100 p-8">
   <div class="p-8">
       <h2 class="text-2xl font-bold mb-4">User Table</h2>
@@ -15,7 +14,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Example Row -->
           <?php if (!empty($users)) { ?>
             <?php foreach($users as $user){ ?>
              <tr class="hover:bg-gray-100">
@@ -33,7 +31,6 @@
              </tr>
            <?php };?>
           <?php };?>
-          <!-- Add more rows as needed -->
         </tbody>
       </table>
   </div>
