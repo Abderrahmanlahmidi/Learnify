@@ -3,7 +3,6 @@
 require "../config/connection.php";
 require "../models/userModel.php";
 
-
 $userAllData = new userController();
 $users = $userAllData -> getAllUsersController();
 
@@ -13,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 require "../view/dashboard/tableUsersView.php";
-
 
 
 class userController{

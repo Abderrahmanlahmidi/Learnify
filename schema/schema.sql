@@ -92,7 +92,7 @@ CREATE TABLE learnifydb.courses(
   user_id INT,
   Foreign Key (catygorie_id) REFERENCES learnifydb.catygories(id),
   Foreign Key (user_id) REFERENCES learnifydb.user(id)
-)
+) ENGINE=INNODB;
 
 -- Insert data into `categories` table
 INSERT INTO learnifydb.catygories (catygorie) VALUES
@@ -155,32 +155,23 @@ INSERT INTO learnifydb.tag_courses (courses_id, tag_id) VALUES
 (6, 2),
 (7, 1);
 
+
+
+
 SELECT 
     courses.id, 
     courses.titre, 
     courses.description_course, 
     courses.contenu, 
-    catygories.catygorie AS categorie,
+    catygories.catygorie AS categorie, 
     GROUP_CONCAT(tags.tags SEPARATOR ', ') AS tags, 
-    user.nom AS enseignant
-FROM 
-    courses
-JOIN 
-    tag_courses ON courses.id = tag_courses.courses_id
-JOIN 
-    tags ON tag_courses.tag_id = tags.id
-JOIN 
-    catygories ON courses.catygorie_id = catygories.id
-JOIN 
-    user ON courses.user_id = user.id
-GROUP BY 
-    courses.id;
-
-
-
-
-
-
-
-
+    COUNT(tags.id) AS tag_count, 
+    user.nom AS enseignant 
+FROM courses 
+JOIN tag_courses ON courses.id = tag_courses.courses_id 
+JOIN tags ON tag_courses.tag_id = tags.id 
+JOIN catygories ON courses.catygorie_id = catygories.id 
+JOIN user ON courses.user_id = user.id 
+GROUP BY courses.id 
+ORDER BY courses.titre ASC;
 

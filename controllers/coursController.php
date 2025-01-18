@@ -1,15 +1,23 @@
 <?php
 
-
 require "../config/connection.php";
 require "../models/coursModel.php";
+
+$displayCourses = new coursController();
+
+$courses = $displayCourses -> getAllCoursController();
+
+echo "<pre>";
+echo print_r($courses);
+echo "</pre>";
+
 require "../view/coursesView.php";
+
 
 
 class coursController{
 
     private $coursModel;
-
 
     public function __construct()
     {

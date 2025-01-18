@@ -81,37 +81,21 @@ class Cours{
     }
 
 
-    public function getAllCours(){
-    $sql = "SELECT 
-    courses.id, 
-    courses.titre, 
-    courses.description_course, 
-    courses.contenu, 
-    catygories.catygorie AS categorie,
-    GROUP_CONCAT(tags.tags SEPARATOR ', ') AS tags, 
-    user.nom AS enseignant
-    FROM 
-        courses
-    JOIN 
-        tag_courses ON courses.id = tag_courses.courses_id
-    JOIN 
-        tags ON tag_courses.tag_id = tags.id
-    JOIN 
-        catygories ON courses.catygorie_id = catygories.id
-    JOIN 
-        user ON courses.user_id = user.id
-    GROUP BY 
-    courses.id;";
-        $stmt = $this->connection->prepare($sql);
-        $stmt->execute();
-        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        if(!empty($row)){
-            return $row;
+    public function getAllCours()
+    {
+        try {
+            $sql = "SELECT courses.id, courses.titre, courses.description_course, courses.contenu, catygories.catygorie AS categorie, GROUP_CONCAT(tags.tags SEPARATOR ', ') AS tags, COUNT(tags.id) AS tag_count, user.nom AS enseignant FROM learnifydb.courses JOIN learnifydb.tag_courses ON courses.id = tag_courses.courses_id JOIN learnifydb.tags ON tag_courses.tag_id = tags.id JOIN learnifydb.catygories ON courses.catygorie_id = catygories.id JOIN learnifydb.user ON courses.user_id = user.id GROUP BY courses.id ORDER BY courses.titre ASC;";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       
+            return !empty($results) ? $results : [];
+        } catch (PDOException $e) {
+            throw new Exception("Database query failed: " . $e->getMessage());
         }
-
-        return [];
     }
+    
+    
 
     public function createCours(string $titre, string $description, string $contenu, string $categories, string $photo)
     {
@@ -122,7 +106,6 @@ class Cours{
         $stmt->bindParam(':contenu', $contenu);
         $stmt->bindParam(':categories', $categories);
         $stmt->bindParam(':photo', $photo);
-
 
         return $stmt->execute();
     }
@@ -136,6 +119,7 @@ class Cours{
 
     public function updateCours(int $id,string $titre, string $description, string $contenu, string $categories, string $photo){
         $sql = "UPDATE learnifydb.cours SET titre = :titre, description = :description, contenu = :contenu, categories = :categories, photo = :photo where id = :id";
+
         $stmt = $this -> connection -> prepare($sql);
         $stmt->bindParam(':titre', $titre);
         $stmt->bindParam(':description', $description);
@@ -143,6 +127,7 @@ class Cours{
         $stmt->bindParam(':categories', $categories);
         $stmt->bindParam(':photo', $photo);
         $stmt->bindParam(':id', $id);
+
         return $stmt->execute();
     }
 

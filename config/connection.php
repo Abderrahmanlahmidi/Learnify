@@ -4,7 +4,7 @@
 class Connection{
 
     private string $host = "localhost";
-    private string $dbname = "LearnifyDB";
+    private string $dbname = "Learnifydb";
     private string $username = "root";
     private string $password = "123123321321@instance";
 
@@ -21,6 +21,8 @@ class Connection{
     public function getConnection(){
 
         if ($this -> connection) {
+
+            // echo "<h1>connected</h1>";
            return $this->connection;
         }else{
            echo "error db its not connection"; 

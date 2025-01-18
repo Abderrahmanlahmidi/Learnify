@@ -43,38 +43,22 @@
             <a href="#courses" class="bg-white text-blue-500 px-6 py-3 rounded font-bold hover:bg-gray-200">Explore Courses</a>
         </div>
     </section>
-
-    <!-- Courses Section -->
-    <main class="container mx-auto mt-10 px-6">
-        <section id="courses" class="mt-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Courses</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white shadow-md rounded p-6">
-                    <h3 class="text-xl font-bold mb-2">Web Development</h3>
-                    <p class="text-gray-700 mb-4">Learn the basics of HTML, CSS, and JavaScript to build stunning websites.</p>
-                </div>
-                <div class="bg-white shadow-md rounded p-6">
-                    <h3 class="text-xl font-bold mb-2">Web Development</h3>
-                    <p class="text-gray-700 mb-4">Learn the basics of HTML, CSS, and JavaScript to build stunning websites.</p>
-                </div>
-                <div class="bg-white shadow-md rounded p-6">
-                    <h3 class="text-xl font-bold mb-2">Web Development</h3>
-                    <p class="text-gray-700 mb-4">Learn the basics of HTML, CSS, and JavaScript to build stunning websites.</p>
-                </div>
-                <div class="bg-white shadow-md rounded p-6">
-                    <h3 class="text-xl font-bold mb-2">Web Development</h3>
-                    <p class="text-gray-700 mb-4">Learn the basics of HTML, CSS, and JavaScript to build stunning websites.</p>
-                </div>
-                <div class="bg-white shadow-md rounded p-6">
-                    <h3 class="text-xl font-bold mb-2">Web Development</h3>
-                    <p class="text-gray-700 mb-4">Learn the basics of HTML, CSS, and JavaScript to build stunning websites.</p>
-                </div>
-                <div class="bg-white shadow-md rounded p-6">
-                    <h3 class="text-xl font-bold mb-2">Web Development</h3>
-                    <p class="text-gray-700 mb-4">Learn the basics of HTML, CSS, and JavaScript to build stunning websites.</p>
-                </div>
-            </div>
-        </section>
+      <section id="course-list" class="container mx-auto mt-10 px-6">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6">Available Courses</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- Replace the example data with dynamic data -->
+              <?php foreach($courses as $course){ ?>
+              <div class="bg-white shadow-md rounded-lg p-6">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2"><?= $course['titre'] ?></h3>
+                  <p class="text-gray-600 mb-4"><?= $course['description_course'] ?></p>
+                  <p class="text-gray-600 mb-4"><strong>Category:</strong> <?= $course['categorie'] ?></p>
+                  <p class="text-gray-600 mb-4"><strong>Tags:</strong> <?= $course['tags'] ?></p>
+                  <p class="text-gray-600 mb-4"><strong>Instructor:</strong><?= $course['enseignant'] ?></p>
+                  <!-- <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Learn More</a> -->
+              </div>
+              <?php };?>
+          </div>
+      </section>
     </main>
     <footer class="bg-gray-800 text-white py-6 mt-10">
         <div class="container mx-auto text-center">
@@ -83,4 +67,3 @@
     </footer>
 </body>
 </html>
-
