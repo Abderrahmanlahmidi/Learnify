@@ -7,11 +7,19 @@ $displayCourses = new coursController();
 
 $courses = $displayCourses -> getAllCoursController();
 
-echo "<pre>";
-echo print_r($courses);
-echo "</pre>";
+// echo "<pre>";
+// echo print_r($courses);
+// echo "</pre>";
 
-require "../view/coursesView.php";
+$uri = $_SERVER['REQUEST_URI'];
+
+if ($uri == '/') {
+    require "../view/coursesView.php";
+}else if($uri == '/dashboard/courses'){
+    require "../view/dashboard/coursesTableView.php";
+}
+
+
 
 
 

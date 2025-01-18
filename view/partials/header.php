@@ -25,6 +25,7 @@
           <nav class="flex-1 p-4 space-y-2">
             <a href="/" class="block px-4 py-2 rounded hover:bg-gray-700">Home</a>
             <a href="/dashboard/users" class="block px-4 py-2 rounded hover:bg-gray-700">Users</a>
+            <a href="/dashboard/courses" class="block px-4 py-2 rounded hover:bg-gray-700">Courses</a>
           </nav>
           <div class="p-4 border-t border-gray-700 text-sm">
             © 2025 MyWebsite

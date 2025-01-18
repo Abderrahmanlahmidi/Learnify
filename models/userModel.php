@@ -58,7 +58,7 @@ class User{
     }
 
     public function getAge(){
-        return $this -> age;
+        return $this -> age; 
     }
 
     public function getConnection(){
@@ -107,7 +107,6 @@ class User{
         $stmt->bindParam(':age', $age);
         $stmt->bindParam(':password', $password);
         $stmt->bindParam(':id', $id);
-
         return $stmt->execute();
     }
 

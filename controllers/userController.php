@@ -11,8 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("Refresh:0");
 }
 
-require "../view/dashboard/tableUsersView.php";
 
+
+
+
+require "../view/dashboard/tableUsersView.php";
 
 class userController{
 
