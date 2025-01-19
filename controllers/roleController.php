@@ -2,7 +2,17 @@
 
 require "../config/connection.php";
 require "../models/roleModel.php";
-require "../view/rolesView.php";
+
+
+$displayRoles = new RoleController();
+
+$roles = $displayRoles->getAllRoles();
+
+// echo "<pre>";
+// echo print_r($roles);
+// echo "</pre>";
+
+require "../view/dashboard/roleView.php";
 
 
 class RoleController{
@@ -35,6 +45,8 @@ class RoleController{
       }
 
 }
+
+
 
 
 

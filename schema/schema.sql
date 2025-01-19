@@ -157,7 +157,6 @@ INSERT INTO learnifydb.tag_courses (courses_id, tag_id) VALUES
 
 
 
-
 SELECT 
     courses.id, 
     courses.titre, 
@@ -174,4 +173,6 @@ JOIN catygories ON courses.catygorie_id = catygories.id
 JOIN user ON courses.user_id = user.id 
 GROUP BY courses.id 
 ORDER BY courses.titre ASC;
+
+
 

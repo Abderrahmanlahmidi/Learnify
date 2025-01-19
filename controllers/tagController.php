@@ -4,6 +4,17 @@
 require "../config/connection.php";
 require "../models/tagsModel.php";
 
+$displayTags = new TagController();
+
+$tags = $displayTags -> getAllTagsController();
+
+// echo "<pre>";
+// echo print_r($tags);
+// echo "</pre>";
+
+
+require "../view/dashboard/tagsView.php";
+
 class TagController{
 
     private $tagModel;
@@ -32,7 +43,7 @@ class TagController{
       public function updateTagController(int $id, string $tag){
         $this -> tagModel -> updateTag($id, $tag);
       }
-
+      
 }
 
 
