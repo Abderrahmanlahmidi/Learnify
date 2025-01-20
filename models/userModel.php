@@ -79,14 +79,15 @@ class User{
         return [];
     }
 
-    public function createUser(string $nom, string $email, string $age, string $password)
+    public function createUser(string $nom, string $email, int $age, string $password, int $role_id)
     {
-        $sql = "INSERT INTO learnifydb.user (nom, email, age, password) VALUES (:nom, :email, :age, :password)";
+        $sql = "INSERT INTO learnifydb.user (nom, email, age, password, role_id) VALUES (:nom, :email, :age, :password, :role_id)";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':nom', $nom);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':age', $age);
         $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':role_id', $role_id);
 
         return $stmt->execute();
     }
@@ -98,7 +99,7 @@ class User{
             return $stmt -> execute();
     }
 
-    public function updateUser(int $id, string $nom, string $email, string $age, string $password){
+    public function updateUser(int $id, string $nom, string $email, int $age, string $password){
         $sql = "UPDATE learnifydb.user SET nom = :nom, email = :email, age = :age, password = :password where id = :id";
         $stmt = $this -> connection -> prepare($sql);
         $stmt->bindParam(':nom', $nom);

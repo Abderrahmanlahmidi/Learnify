@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Categories{
     private int $id = 0;
     private string $categories = "";
@@ -61,14 +59,6 @@ class Categories{
 
 
 }
-
-
-
-
-
-
-
-
 
 
 ?>

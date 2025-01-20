@@ -69,6 +69,22 @@
                     >
                 </div>
 
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">
+                        Role
+                    </label>
+                    <div class="flex items-center gap-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="role" value="Enseignant" required>
+                            <span class="ml-2 text-gray-700">Enseignant</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="role" value="Etudiant" required>
+                            <span class="ml-2 text-gray-700">Etudiant</span>
+                        </label>
+                    </div>
+                </div>
+
                 <div class="flex items-center justify-between">
                     <button
                         class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

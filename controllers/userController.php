@@ -12,9 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-
-
-
 require "../view/dashboard/tableUsersView.php";
 
 class userController{
@@ -32,10 +29,7 @@ class userController{
       return $users;
     }
 
-    public function createUserController(string $nom, string $email,string $password,int $age){
-      $this -> userModel -> createUser($nom, $email, $password, $age);
-    }
-
+    
     public function deleteUserController(int $id){
        $this -> userModel -> deleteUser($id);
     }

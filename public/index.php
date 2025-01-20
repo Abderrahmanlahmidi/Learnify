@@ -2,6 +2,4 @@
 
 require "../routes/routes.php";
 
-
-
 ?>

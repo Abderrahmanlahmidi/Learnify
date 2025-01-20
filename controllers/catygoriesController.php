@@ -33,7 +33,6 @@ class CatygoriesController{
         $this -> catygoriesModel -> deleteCategories($id);
     }
 
-
 }
 
 

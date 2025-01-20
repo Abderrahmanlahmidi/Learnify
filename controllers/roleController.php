@@ -33,10 +33,8 @@ class RoleController{
     }
 
     public function getAllRoles(){
-       
             $roles = $this -> roleModel -> getAllRoles();
             return $roles;
-
     }
 
     public function createUserController(string $role){
