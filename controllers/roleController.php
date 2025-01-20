@@ -8,6 +8,13 @@ $displayRoles = new RoleController();
 
 $roles = $displayRoles->getAllRoles();
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $displayRoles->deleteRoleController($_POST['deleteInfo']);
+  header("Refresh:0");
+}
+
+
 // echo "<pre>";
 // echo print_r($roles);
 // echo "</pre>";
@@ -45,10 +52,6 @@ class RoleController{
       }
 
 }
-
-
-
-
 
 
 ?>

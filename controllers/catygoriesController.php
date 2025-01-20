@@ -7,6 +7,10 @@ $displayCatygories = new CatygoriesController();
 
 $catygories = $displayCatygories -> getAllCatygories();
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $displayCatygories -> deleteCatygorie($_POST['deleteInfo']);
+}
+
 require "../view/dashboard/catygoriesView.php";
 
 class CatygoriesController{
@@ -23,6 +27,10 @@ class CatygoriesController{
     public function getAllCatygories(){
         $categories = $this -> catygoriesModel -> getAllCategories();
         return $categories;
+    }
+
+    public function deleteCatygorie($id){
+        $this -> catygoriesModel -> deleteCategories($id);
     }
 
 

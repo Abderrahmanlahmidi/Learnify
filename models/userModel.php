@@ -68,11 +68,10 @@ class User{
 
     public function getAllUsers(){
       
-        $sql = "SELECT * FROM learnifydb.user INNER JOIN learnifydb.role ON role_id = role.id";
+        $sql = "SELECT user.*, role.role_name FROM learnifydb.user INNER JOIN learnifydb.role ON learnifydb.user.role_id = learnifydb.role.id";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         if(!empty($row)){
             return $row;
         }
@@ -111,13 +110,6 @@ class User{
     }
 
 }
-
-
-
-
-
-
-
 
 
 ?>

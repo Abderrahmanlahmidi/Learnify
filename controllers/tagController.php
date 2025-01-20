@@ -8,6 +8,12 @@ $displayTags = new TagController();
 
 $tags = $displayTags -> getAllTagsController();
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $displayTags->deleteTagController($_POST['deleteInfo']);
+  header("Refresh:0");
+}
+
+
 // echo "<pre>";
 // echo print_r($tags);
 // echo "</pre>";

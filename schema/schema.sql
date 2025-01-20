@@ -3,7 +3,6 @@ CREATE DATABASE LearnifyDB;
 USE LearnifyDB;
 
 
-
 ALTER TABLE user ADD role varchar(255) NOT NULL;
 
 
@@ -35,9 +34,10 @@ CREATE TABLE role(
 
 INSERT INTO learnifydb.role (role_name)
 VALUES 
-("admin"),
-("Étudiant"),
-("Enseignant");
+-- ("admin"),
+-- ("Étudiant"),
+-- ("Enseignant")
+("super2 admin");
 
 
 CREATE TABLE learnifydb.user(
@@ -96,19 +96,21 @@ CREATE TABLE learnifydb.courses(
 
 -- Insert data into `categories` table
 INSERT INTO learnifydb.catygories (catygorie) VALUES
-('Programming'),
-('Design'),
-('Marketing'),
-('Business'),
-('Photography');
+-- ('Programming'),
+-- ('Design'),
+-- ('Marketing'),
+-- ('Business'),
+-- ('Photography'),
+('It');
 
 -- Insert data into `tags` table
 INSERT INTO learnifydb.tags (tags) VALUES
-('JavaScript'),
-('Python'),
-('UI/UX'),
-('SEO'),
-('Entrepreneurship');
+-- ('JavaScript'),
+-- ('Python'),
+-- ('UI/UX'),
+-- ('SEO'),
+-- ('Entrepreneurship')
+('Entrepreneurship_1');
 
 -- Insert data into `courses` table
 INSERT INTO learnifydb.courses (titre, description_course, contenu, catygorie_id, user_id) VALUES
@@ -154,7 +156,6 @@ INSERT INTO learnifydb.tag_courses (courses_id, tag_id) VALUES
 (10, 5),
 (6, 2),
 (7, 1);
-
 
 
 SELECT 

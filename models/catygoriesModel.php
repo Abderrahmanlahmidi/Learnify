@@ -51,6 +51,13 @@ class Categories{
         
     }
 
+    public function deleteCategories(int $id){
+           $sql = "DELETE FROM learnifydb.catygories WHERE id = :id";
+            $stmt = $this -> connection -> prepare($sql);
+            $stmt -> bindParam(':id', $id);
+            return $stmt -> execute();
+    }
+
 
 
 }

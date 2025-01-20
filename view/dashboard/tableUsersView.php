@@ -17,7 +17,7 @@
           <?php if (!empty($users)) { ?>
             <?php foreach($users as $user){ ?>
              <tr class="hover:bg-gray-100">
-               <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $user['id'];?></td>
+               <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $user['id'] ;?></td>
                <td class="border border-gray-300 px-4 py-2"><?php echo $user['nom'];?></td>
                <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $user['age'];?></td>
                <td class="border border-gray-300 px-4 py-2"><?php echo $user['email'];?></td>
@@ -25,7 +25,7 @@
                <td class="border flex justify-center  border-gray-300 px-4 py-2 text-center">
                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Update</button>
                <form action="" method="POST">
-                 <button type="submit" name="deleteInfo" value="<?= $user["id"] ?>"  class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 ml-2">Delete</button>
+                 <button type="submit" name="deleteInfo" value="<?= $user['id'] ?>"  class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 ml-2">Delete</button>
                </form>
               </td>
              </tr>
